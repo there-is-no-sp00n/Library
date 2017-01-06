@@ -16,6 +16,7 @@ class Controller
 
 	private:
 		vector <Comic> main_comic;
+		vector <Game> main_game;
 };
 
 #endif
