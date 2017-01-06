@@ -6,6 +6,7 @@
 #include <iomanip>
 #include "Comic.h"
 #include "Game.h"
+#include "Novel.h"
 
 using namespace std;
 
@@ -33,10 +34,20 @@ class Library
 
 		vector <Game> get_game_vec();
 
+
+		//pertaining to novels
+		void add_novel(vector <Novel> from_cont);
+
+		void print_all_novels(vector <Novel> print_novel);
+
+		void delete_novel(vector <Novel> novel_list);
+
+		vector <Novel> get_novel_vec();
+
 	private:
 		vector <Comic> all_comic;
 		vector <Game> all_game;
-
+		vector <Novel> all_novel;
 };
 
 #endif
