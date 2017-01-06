@@ -5,8 +5,9 @@ Library::Library()
 
 }
 
-void Library::add_comic()
+void Library::add_comic(vector <Comic> from_con)
 {
+	all_comic = from_con;
 	string title, publisher, year, author, illustrator;
 	
 	cout << "What is the title? ";
@@ -43,9 +44,10 @@ void Library::add_comic()
 	//print_all_comics();
 }
 
-void Library::print_all_comics()
+void Library::print_all_comics(vector <Comic> print_com)
 {
 	//vector <Comic> read_access = get_comic_vec();
+	all_comic = print_com;
 	int com_size = all_comic.size();
 
 	for (int i = 0; i < com_size; i++)
@@ -61,14 +63,28 @@ void Library::print_all_comics()
 		illustrator = temp.get_illustrator();
 
 		cout << endl;
-		cout << "Comic # " << i+1 << endl;
-		cout << "Title: " << title << endl;
-		cout << "Publisher: " << publisher << endl;
-		cout << "Year: " << year << endl;
-		cout << "Author: " << author << endl;
-		cout << "Illustrator: " << illustrator << endl;
+		cout << setw(10) << left << "Comic # " << i+1 << endl;
+		cout << setw(20) << "Title: " << setw(10) << title << endl;
+		cout << setw(20) << "Publisher: " << setw(10) << publisher << endl;
+		cout << setw(20) << "Year: " << setw(10) << year << endl;
+		cout << setw(20) << "Author: " << setw(10) << author << endl;
+		cout << setw(20) << "Illustrator: " << setw(10) << illustrator << endl;
 	}
 }
+
+void Library::delete_comic(vector <Comic> from_cont)
+{
+	all_comic = from_cont;
+	print_all_comics(all_comic);
+
+	int delete_choice;
+
+	cout << "Which comic would you like to delete? ";
+	cin >> delete_choice;
+
+	all_comic.erase(all_comic.begin() + delete_choice-1);
+}
+
 
 vector <Comic> Library::get_comic_vec()
 {
