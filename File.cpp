@@ -37,7 +37,7 @@ void File::comic_to_file(vector <Comic> c_file)
 	int com_size = c_file.size();
 
 	comic_file.open("File_Comic.txt");
-	comic_file << "#" << "\t" << left << setw(20) << "Title" << " " <<  setw(20) << "Publisher" << " " << setw(20) << "Year" << " " << setw(20) << "Author" << " " << setw(20) << "Illustrator" << endl;
+	comic_file << "#" << "\t" << left << setw(30) << "Title" << " " <<  setw(20) << "Publisher" << " " << setw(20) << "Year" << " " << setw(20) << "Author" << " " << setw(20) << "Illustrator" << endl;
 	comic_file << endl;
 
 	for (int i = 0; i < com_size; i++)
@@ -60,7 +60,7 @@ void File::comic_to_file(vector <Comic> c_file)
 		//cout << "Author: " << author << endl;
 		//cout << "Illustrator: " << illustrator << endl;
 
-		comic_file << i+1 << "\t" << left << setw(20) << title << " " << setw(20) << publisher << " " << setw(20) << year << " " << setw(20) << author << " " <<  setw(20) << illustrator << " " << endl; 
+		comic_file << i+1 << "\t" << left << setw(30) << title << " " << setw(20) << publisher << " " << setw(20) << year << " " << setw(20) << author << " " <<  setw(20) << illustrator << " " << endl; 
 
 	}
 

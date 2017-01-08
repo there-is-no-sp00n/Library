@@ -24,6 +24,10 @@ class Library
 
 		vector <Comic> get_comic_vec();
 
+		void sort_comic(vector <Comic> from_cont);
+
+		void search_comic(vector <Comic> from_cont);
+
 
 		//pertaining to games
 		void add_game(vector <Game> from_cont);
@@ -33,6 +37,10 @@ class Library
 		void delete_game(vector <Game> ze_list);
 
 		vector <Game> get_game_vec();
+
+		void sort_game(vector <Game> from_cont);
+
+		void search_comic(vector <Game> from_cont);
 
 
 		//pertaining to novels
