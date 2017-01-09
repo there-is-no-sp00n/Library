@@ -14,7 +14,8 @@ void Controller::run_prog()
 	Library lib_1;
 	File to_file;
 	main_comic = to_file.comic_to_vector();
-
+	main_game = to_file.game_to_vector();
+	main_novel = to_file.novel_to_vector();
 
 	while (flag)
 	{
@@ -26,6 +27,8 @@ void Controller::run_prog()
 		cout << "Press 2 for Game Menu" << endl;
 		cout << "Press 3 for Book Menu" << endl;
 		cout << "Press 4 for Media Menu" << endl;
+
+		cout << endl;
 	
 		cout << "What is your choice? ";
 
@@ -52,6 +55,8 @@ void Controller::run_prog()
 				cout << "Press 4 to sort comics" << endl;
 				cout << "Press 5 to search comics" << endl;
 				cout << "Press 0 to save and exit" << endl;
+
+				cout << endl;
 
 				cout << "What is your choice? ";
 
@@ -119,6 +124,8 @@ void Controller::run_prog()
 				cout << "Press 5 to search games" << endl;
 				cout << "Press 0 to save and exit" << endl;
 
+				cout << endl;
+
 				cout << "What is your choice? ";
 
 				cin >> choice;
@@ -136,36 +143,103 @@ void Controller::run_prog()
 
 				if (choice == 1)
 				{
-					//lib_1.add_game(main_game);
-					//main_game = lib_1.get_game_vec();			
+					lib_1.add_game(main_game);
+					main_game = lib_1.get_game_vec();			
 				}
 
 				if (choice == 2)
 				{
-					//lib_1.print_all_games(main_game);
+					lib_1.print_all_games(main_game);
 				}
 
 				if (choice == 3)
 				{
-					//lib_1.delete_game(main_game);
-					//main_game = lib_1.get_game_vec();
+					lib_1.delete_game(main_game);
+					main_game = lib_1.get_game_vec();
 				}
 
 				if (choice == 4)
 				{
-					//lib_1.sort_game(main_game);
-					//main_game = lib_1.get_game_vec();
+					lib_1.sort_game(main_game);
+					main_game = lib_1.get_game_vec();
 				}
 
 				if (choice == 5)
 				{
-					//lib_1.search_game(main_game);
+					lib_1.search_game(main_game);
 				}
 
 				if (choice == 0)
 				{
-					//vector <Game> pass = lib_1.get_game_vec();
-					//to_file.game_to_file(pass);
+					vector <Game> pass = lib_1.get_game_vec();
+					to_file.game_to_file(pass);
+					break;
+				}
+			}
+
+		}
+
+		if (choice == 3)
+		{
+			while (true)
+			{
+				cout << "---------------------------------" << endl;
+				cout << "Press 1 to add a book" << endl;
+				cout << "Press 2 to view all books" << endl;
+				cout << "Press 3 to delete a book" << endl;
+				cout << "Press 4 to sort books" << endl;
+				cout << "Press 5 to search books" << endl;
+				cout << "Press 0 to save and exit" << endl;
+
+				cout << endl;
+
+				cout << "What is your choice? ";
+
+				cin >> choice;
+
+				while(cin.fail())
+				{
+					cout << "ERROR INVALID INPUT" << endl;
+					cin.clear();
+					cin.ignore(256, '\n');
+					cout << "Please enter valid input: ";
+					cin >> choice;
+				}
+
+				cout << endl;
+
+				if (choice == 1)
+				{
+					lib_1.add_novel(main_novel);
+					main_novel = lib_1.get_novel_vec();			
+				}
+
+				if (choice == 2)
+				{
+					lib_1.print_all_novels(main_novel);
+				}
+
+				if (choice == 3)
+				{
+					lib_1.delete_novel(main_novel);
+					main_novel = lib_1.get_novel_vec();
+				}
+
+				if (choice == 4)
+				{
+					lib_1.sort_novel(main_novel);
+					main_novel = lib_1.get_novel_vec();
+				}
+
+				if (choice == 5)
+				{
+					lib_1.search_novel(main_novel);
+				}
+
+				if (choice == 0)
+				{
+					vector <Novel> pass = lib_1.get_novel_vec();
+					to_file.novel_to_file(pass);
 					break;
 				}
 			}

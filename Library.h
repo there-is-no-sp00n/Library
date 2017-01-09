@@ -40,7 +40,7 @@ class Library
 
 		void sort_game(vector <Game> from_cont);
 
-		void search_comic(vector <Game> from_cont);
+		void search_game(vector <Game> from_cont);
 
 
 		//pertaining to novels
@@ -51,6 +51,10 @@ class Library
 		void delete_novel(vector <Novel> novel_list);
 
 		vector <Novel> get_novel_vec();
+
+		void sort_novel(vector <Novel> from_cont);
+
+		void search_novel(vector <Novel> from_cont);
 
 	private:
 		vector <Comic> all_comic;
