@@ -7,7 +7,6 @@ Library::Library()
 
 //start of comic functionalities
 
-
 void Library::add_comic(vector <Comic> from_con)
 {
 	all_comic = from_con;
@@ -152,7 +151,15 @@ void Library::delete_comic(vector <Comic> from_cont)
 	cout << "Which comic would you like to delete? ";
 	cin >> delete_choice;
 
-	all_comic.erase(all_comic.begin() + delete_choice-1);
+	if (delete_choice <= all_comic.size() && delete_choice > 0)
+	{
+		all_comic.erase(all_comic.begin() + delete_choice-1);
+	}
+	
+	else
+	{
+		cout << "ERROR: number out of range" << endl;
+	}
 }
 
 void Library::sort_comic(vector <Comic> from_cont)
@@ -263,7 +270,6 @@ vector <Comic> Library::get_comic_vec()
 {
 	return all_comic;
 }
-
 
 //end of comic functionalities
 
@@ -419,7 +425,16 @@ void Library::delete_game(vector <Game> from_cont)
 	cout << "Which game would you like to delete? ";
 	cin >> delete_choice;
 
-	all_game.erase(all_game.begin() + delete_choice-1);
+	if (delete_choice <= all_game.size() && delete_choice > 0)
+	{
+		all_game.erase(all_game.begin() + delete_choice-1);
+	}
+	
+	else
+	{
+		cout << "ERROR: number out of range" << endl;
+	}
+	
 }
 
 void Library::sort_game(vector <Game> from_cont)
@@ -528,6 +543,7 @@ void Library::search_game(vector <Game> from_cont)
 }
 
 //end of game functionalities
+
 
 
 //beginning of book functionalities
@@ -666,7 +682,17 @@ void Library::delete_novel(vector <Novel> from_cont)
 	cout << "Which book would you like to delete? ";
 	cin >> delete_choice;
 
-	all_novel.erase(all_novel.begin() + delete_choice-1);
+	if (delete_choice <= all_novel.size() && delete_choice > 0)
+	{
+		all_novel.erase(all_novel.begin() + delete_choice-1);
+	}
+	
+	else
+	{
+		cout << "ERROR: number out of range" << endl;
+	}
+
+	
 }
 
 void Library::sort_novel(vector <Novel> from_cont)
@@ -773,6 +799,7 @@ void Library::search_novel(vector <Novel> from_cont)
 }
 
 //end of book functionalities
+
 
 
 //beginning of media functionalities
@@ -911,7 +938,17 @@ void Library::delete_media(vector <Media> from_cont)
 	cout << "Which movie would you like to delete? ";
 	cin >> delete_choice;
 
-	all_media.erase(all_media.begin() + delete_choice-1);
+	if (delete_choice <= all_media.size() && delete_choice > 0)
+	{
+		all_media.erase(all_media.begin() + delete_choice-1);
+	}
+	
+	else
+	{
+		cout << "ERROR: number out of range" << endl;
+	}
+
+	
 }
 
 void Library::sort_media(vector <Media> from_cont)
@@ -1016,3 +1053,5 @@ void Library::search_media(vector <Media> from_cont)
 	}
 
 }
+
+//end of media functionalities

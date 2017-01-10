@@ -8,5 +8,4 @@ int main()
 {
 	Controller boss;
 	boss.run_prog();
-
 }
