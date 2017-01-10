@@ -13,9 +13,11 @@ void Controller::run_prog()
 	int flag = 1;
 	Library lib_1;
 	File to_file;
+
 	main_comic = to_file.comic_to_vector();
 	main_game = to_file.game_to_vector();
 	main_novel = to_file.novel_to_vector();
+	main_media = to_file.media_to_vector();
 
 	while (flag)
 	{
@@ -27,7 +29,7 @@ void Controller::run_prog()
 		cout << "Press 2 for Game Menu" << endl;
 		cout << "Press 3 for Book Menu" << endl;
 		cout << "Press 4 for Media Menu" << endl;
-
+		cout << "Press 0 to exit program" << endl;
 		cout << endl;
 	
 		cout << "What is your choice? ";
@@ -43,6 +45,13 @@ void Controller::run_prog()
 		}
 
 		cout << endl;
+
+		if (choice == 0)
+		{
+			cout << "********** GOOD-BYE **********" << endl;
+			cout << endl;
+			flag = 0;
+		}
 
 		if (choice == 1)
 		{
@@ -103,8 +112,8 @@ void Controller::run_prog()
 
 				if (choice == 0)
 				{
-					vector <Comic> pass = lib_1.get_comic_vec();
-					to_file.comic_to_file(pass);
+					//vector <Comic> pass = lib_1.get_comic_vec();
+					to_file.comic_to_file(main_comic);
 					break;
 				}
 			}
@@ -171,8 +180,8 @@ void Controller::run_prog()
 
 				if (choice == 0)
 				{
-					vector <Game> pass = lib_1.get_game_vec();
-					to_file.game_to_file(pass);
+					//vector <Game> pass = lib_1.get_game_vec();
+					to_file.game_to_file(main_game);
 					break;
 				}
 			}
@@ -238,8 +247,76 @@ void Controller::run_prog()
 
 				if (choice == 0)
 				{
-					vector <Novel> pass = lib_1.get_novel_vec();
-					to_file.novel_to_file(pass);
+					//vector <Novel> pass = lib_1.get_novel_vec();
+					to_file.novel_to_file(main_novel);
+					break;
+				}
+			}
+
+		}
+
+
+		if (choice == 4)
+		{
+			while (true)
+			{
+				cout << "---------------------------------" << endl;
+				cout << "Press 1 to add a media" << endl;
+				cout << "Press 2 to view all media" << endl;
+				cout << "Press 3 to delete a media" << endl;
+				cout << "Press 4 to sort media" << endl;
+				cout << "Press 5 to search media" << endl;
+				cout << "Press 0 to save and exit" << endl;
+
+				cout << endl;
+
+				cout << "What is your choice? ";
+
+				cin >> choice;
+
+				while(cin.fail())
+				{
+					cout << "ERROR INVALID INPUT" << endl;
+					cin.clear();
+					cin.ignore(256, '\n');
+					cout << "Please enter valid input: ";
+					cin >> choice;
+				}
+
+				cout << endl;
+
+				if (choice == 1)
+				{
+					lib_1.add_media(main_media);
+					main_media = lib_1.get_media_vec();			
+				}
+
+				if (choice == 2)
+				{
+					lib_1.print_all_media(main_media);
+				}
+
+				if (choice == 3)
+				{
+					lib_1.delete_media(main_media);
+					main_media = lib_1.get_media_vec();
+				}
+
+				if (choice == 4)
+				{
+					lib_1.sort_media(main_media);
+					main_media = lib_1.get_media_vec();
+				}
+
+				if (choice == 5)
+				{
+					lib_1.search_media(main_media);
+				}
+
+				if (choice == 0)
+				{
+					//vector <Media> pass = lib_1.get_media_vec();
+					to_file.media_to_file(main_media);
 					break;
 				}
 			}

@@ -18,6 +18,7 @@ class Controller
 		vector <Comic> main_comic;
 		vector <Game> main_game;
 		vector <Novel> main_novel;
+		vector <Media> main_media;
 };
 
 #endif

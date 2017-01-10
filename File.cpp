@@ -169,3 +169,56 @@ vector <Novel> File::novel_to_vector()
 	return return_vec;
 
 }
+
+
+//media persistence
+
+void File::media_to_file(vector <Media> m_file)
+{
+	int media_size = m_file.size();
+
+	media_file.open("File_Media.txt");
+	media_file << "#" << "\t" << left << setw(30) << "Title" << " " <<  setw(40) << "Director" << " " << setw(20) << "Year" << " " << setw(20) << "Genre" << endl;
+	media_file << endl;
+
+	for (int i = 0; i < media_size; i++)
+	{
+		Media temp;
+		string title, director, year, genre;
+
+		temp = m_file[i];
+		title = temp.get_title();
+		director = temp.get_director();
+		year = temp.get_year();
+		genre = temp.get_genre();
+
+
+		media_file << i+1 << "\t" << left << setw(30) << title << " " << setw(40) << director << " " << setw(20) << year << " " <<  setw(20) << genre << " " << endl; 
+
+	}
+
+	media_file.close();
+}
+
+vector <Media> File::media_to_vector()
+{
+	vector <Media> return_vec;
+	string num, title, director, year, genre;
+	int counter = 0;
+	media_input.open("File_Media.txt");
+
+	while(media_input >> num >> title >> director >> year >> genre)
+	{
+		Media temp(title, director, year, genre);
+		
+		if (counter > 0)
+		{
+			return_vec.push_back(temp);
+		}
+
+		counter++;
+	}
+	
+	return return_vec;
+
+}

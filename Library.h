@@ -4,9 +4,11 @@
 #include <iostream>
 #include <vector>
 #include <iomanip>
+
 #include "Comic.h"
 #include "Game.h"
 #include "Novel.h"
+#include "Media.h"
 
 using namespace std;
 
@@ -56,10 +58,26 @@ class Library
 
 		void search_novel(vector <Novel> from_cont);
 
+
+		//pertaining to media
+
+		void add_media(vector <Media> from_cont);
+
+		void print_all_media(vector <Media> print_media);
+
+		void delete_media(vector <Media> media_list);
+
+		vector <Media> get_media_vec();
+
+		void sort_media(vector <Media> from_cont);
+		
+		void search_media(vector <Media> from_cont);
+
 	private:
 		vector <Comic> all_comic;
 		vector <Game> all_game;
 		vector <Novel> all_novel;
+		vector <Media> all_media;
 };
 
 #endif
