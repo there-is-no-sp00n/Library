@@ -32,3 +32,7 @@ string Comic::get_illustrator()
 	return illustrator;
 }
 
+string Comic::get_issue()
+{
+	return issue;
+}

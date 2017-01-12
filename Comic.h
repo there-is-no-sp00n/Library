@@ -13,14 +13,14 @@ class Comic
 	public:
 		Comic();
 
-		Comic (string title_1, string publisher_1, string year_1, string author_1, string illustrator_1, string type_1)
+		Comic (string title_1, string publisher_1, string year_1, string author_1, string illustrator_1, string issue_1)
 		{
 			title = title_1;
 			publisher = publisher_1;
 			year = year_1;
 			author = author_1;
 			illustrator = illustrator_1;
-			type = type_1;
+			issue = issue_1;
 		}
 
 		string get_title();
@@ -28,6 +28,7 @@ class Comic
 		string get_year();
 		string get_author();
 		string get_illustrator();
+		string get_issue();
 
 
 	private:
@@ -41,7 +42,7 @@ class Comic
 
 		string illustrator;
 
-		string type;
+		string issue;
 };
 
 

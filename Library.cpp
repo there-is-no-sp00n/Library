@@ -10,7 +10,7 @@ Library::Library()
 void Library::add_comic(vector <Comic> from_con)
 {
 	all_comic = from_con;
-	string title, publisher, year, author, illustrator;
+	string title, publisher, year, author, illustrator, issue;
 
 	int flag = 1;
 
@@ -85,7 +85,20 @@ void Library::add_comic(vector <Comic> from_con)
 			cout << endl;
 		}
 
-		Comic com_1(title, publisher, year, author, illustrator, "comic");
+		cout << "What is the issue number? ";
+		getline(cin, issue);
+		cout << endl;
+		
+		while (issue.find(" ") != string::npos)
+		{
+			cout << "ERROR! Cannot have space in input" << endl;
+			cout << endl;
+			cout << "What is the issue number? ";
+			getline(cin, issue);
+			cout << endl;
+		}
+
+		Comic com_1(title, publisher, year, author, illustrator, issue);
 
 		all_comic.push_back(com_1);
 
